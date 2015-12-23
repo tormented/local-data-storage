@@ -46,6 +46,15 @@
 		.slide.less-code code{
 			line-height: 1.8;
 		}
+		.left{
+			float: left;
+		}
+		.right{
+			float: right;
+		}
+		.clear{
+			clear: both;
+		}
 	</style>
 </head>
 <body class="list">
@@ -73,6 +82,9 @@
 				text-indent: 25px;
 				margin-bottom: 0;
 			}
+			#frontpage img{
+				width: 350px;
+			}
 		</style>
 		<div>
 			<h2>Local Data Storage</h2>
@@ -89,10 +101,34 @@
 			</p>
 		</div>
 	</article>
-	<article class="slide">
+	<article class="slide" id="introduction">
+		<style>
+
+			#introduction img{
+				position: absolute;
+			}
+			.native{
+				width: 380px;
+				top: 180px;
+				left: 80px;
+			}
+			.arrow{
+				width: 200px;
+				top: 260px;
+				right: 320px;
+			}
+			.db{
+				width: 200px;
+				bottom: 80px;
+				right: 100px;
+			}
+
+		</style>
 		<div>
 			<h2>Introduction</h2>
-
+			<img class="native next" src="./images/native-vs-html.png" alt=""/>
+			<img class="arrow next" src="./images/website.png" alt=""/>
+			<img class="db next" src="./images/read-android-sqlite-database.png" alt=""/>
 		</div>
 	</article>
 	<article class="slide tag-placement" lang="ru"><div>
