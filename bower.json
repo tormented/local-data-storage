@@ -1,0 +1,13 @@
+{
+  "name": "local-data-storage",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tormented/local-data-storage",
+  "authors": [
+    "Vitaliy Melnik <vim@qapint.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "shower-core": "~1.0.7",
+    "shower-ribbon": "~1.0.11"
+  }
+}
