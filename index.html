@@ -131,17 +131,686 @@
 			<img class="db next" src="./images/read-android-sqlite-database.png" alt=""/>
 		</div>
 	</article>
-	<article class="slide tag-placement" lang="ru"><div>
+	<article class="slide" id="cookies">
+		<style>
+			#cookies img{
+				width: 45%;
+			}
+			#cookies ul{
+				font-size: 17px;
+				margin-left: 30px;
+				float: right;
+				width: 50%;
+			}
+			#cookies ul li {
+				margin-bottom: 10px;
+			}
+		</style>
+		<div>
+			<h2>Cookies</h2>
+			<img class="left" src="images/cookie-monster-cartoon-large.jpg" alt=""/>
+			<ul>
+				<li class="next">Cookies are included with every HTTP request, thereby slowing down your web application by needlessly transmitting the same data over and over</li>
+				<li class="next">Cookies are included with every HTTP request, thereby sending data unencrypted over the internet (unless your entire web application is served over SSL)</li>
+				<li class="next">Cookies are limited to about 4 KB of data — enough to slow down your application (see above), but not enough to be terribly useful</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide less-h2" id="otherAttempts">
+		<style>
+			#otherAttempts ul{
+				margin-left: 50px;
+				font-size: 22px;
+			}
 
+			#otherAttempts .sub-list{
+				font-size: 18px;
+				margin-top: 0;
+			}
 
-	</div></article>
-	<article class="slide larger" lang="ru"><div>
+		</style>
+		<div>
+			<h2>Other attempts</h2>
 
+			<ul>
+				<li>Cookies</li>
+				<li>
+					Plugins
+					<ul class="sub-list">
+						<li>Flash</li>
+						<li>Silverlight</li>
+						<li>Java</li>
+						<li>Google Gears</li>
+						<li>etc.•</li>
+					</ul>
+				</li>
+				<li>
+					Browser-specific features
+					<ul class="sub-list">
+						<li>IEs userData</li>
+						<li>Mozilla globalStorage</li>
+						<li>Filesystem features used by TiddlyWiki</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide" id="whatWeWant">
+		<style>
+			#whatWeWant ul{
+				margin-left: 50px;
+				margin-top: 20px;
+				font-size: 40px;
+			}
+			#whatWeWant span{
+				float: right;
+			}
+		</style>
+		<div>
+			<h2>What we really want is</h2>
 
-	</div></article>
-	<article class="slide less-h2 less-code" lang="ru"><div>
+			<ul>
+				<li class="next">a lot of storage space</li>
+				<li class="next">on the client</li>
+				<li class="next">that persists beyond a page refresh</li>
+				<li class="next">and isn’t transmitted to the server</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide less-h2" id="SoWhatWeGot">
+		<style>
+			#SoWhatWeGot ul{
+				margin-left: 50px;
+				font-size: 22px;
+				line-height: 35px;
+			}
 
-	</div></article>
+			#SoWhatWeGot .sub-list{
+				font-size: 18px;
+				margin-top: 0;
+			}
+		</style>
+		<div>
+			<h2>So what we got</h2>
+
+			<ul>
+				<li class="next">Three type of data storage</li>
+				<li class="next">
+					"A lot of space"
+					<ul class="sub-list">
+						<li>5Mb</li>
+						<li>Reasonably large amounts of various types of data</li>
+						<li>Caching binary content</li>
+					</ul>
+				</li>
+				<li class="next">
+					Network independence
+					<ul class="sub-list">
+						<li>Performance</li>
+						<li>Offline use</li>
+					</ul>
+				</li>
+				<li class="next">
+					Persistence
+					<ul class="sub-list">
+						<li>Data stability</li>
+						<li>Local customization</li>
+						<li>Ability to easily resume a session</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide" id="webStorage">
+		<style>
+			#webStorage h2{
+				font-size: 70px;
+				font-family: monospace;
+				text-align: center;
+			}
+			#webStorage img{
+				margin: 60px auto;
+				display: block;
+			}
+
+		</style>
+		<div>
+			<h2>Web Storage</h2>
+
+			<img src="images/web-storage.png" alt=""/>
+		</div>
+	</article>
+	<article class="slide" id="webStorageMainFeatures">
+		<style>
+
+		</style>
+		<div>
+			<h2>Main features</h2>
+
+			<ul>
+				<li>Named key-value store</li>
+				<li>Widespread browser support</li>
+				<li>Simple API </li>
+				<li>On client(doesn't transmit values to the server with every request)</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide" id="webStorageLimitations">
+		<style>
+			#webStorageLimitations ul{
+				font-size: 25px;
+				/*line-height: 35px;*/
+			}
+
+			#webStorageLimitations .sub-list{
+				font-size: 20px;
+				margin-top: 0;
+			}
+		</style>
+		<div>
+			<h2>Limitations</h2>
+
+			<ul>
+				<li>
+					Performance can be poor
+					<ul class="sub-list">
+						<li>No indexing</li>
+						<li>Need to fake relational or object store features</li>
+					</ul>
+				</li>
+				<li>
+					Values are strings
+					<ul class="sub-list">
+						<li>JSON.stringify/JSON.parse</li>
+						<li>Base64 encoding for binary data</li>
+					</ul>
+				</li>
+				<li>No transactions</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide less-h2" id="webStorageExample">
+		<style>
+			#webStorageExample pre{
+				font-size: 20px;
+				line-height: 30px;
+				margin-bottom: 30px;
+			}
+
+		</style>
+		<div>
+			<h2>Example</h2>
+
+			<h3>Session storage</h3>
+			<pre>
+				<mark class="comment">// Store value on browser for duration of the session</mark>
+				<code>sessionStorage.setItem('key', 'value');</code>
+				<mark class="comment">// Retrieve value (gets deleted when browser is closed and re-opened)</mark>
+				<code>alert(sessionStorage.getItem('key'));</code>
+			</pre>
+
+			<h3>Local storage</h3>
+			<pre>
+				<mark class="comment">// Store value on the browser beyond the duration of the session</mark>
+				<code>localStorage.setItem('key', 'value');</code>
+				<mark class="comment">// Retrieve value (persists even after closing and re-opening the browser)</mark>
+				<code>alert(localStorage.getItem('key'));</code>
+			</pre>
+		</div>
+	</article>
+	<article class="slide" id="webStorageBrowserSupport">
+		<style>
+			#webStorageBrowserSupport ul{
+				margin-left: 50px;
+				font-size: 25px;
+				line-height: 35px;
+			}
+		</style>
+		<div>
+			<h2>Browser support</h2>
+
+			<ul>
+				<li>Firefox 3.5+</li>
+				<li>Chrome 4.0+</li>
+				<li>Safari 4.0+</li>
+				<li>Opera 10.5+</li>
+				<li>IE 8.0+</li>
+				<li>iOS Safari 3.2+</li>
+				<li>Firefox mobile</li>
+				<li>Opera Mobile 11.0+</li>
+				<li>Android Browser 2.1+</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide" id="webSQL">
+		<style>
+			#webSQL h2{
+				font-size: 70px;
+				font-family: monospace;
+				text-align: center;
+			}
+			#webSQL img{
+				margin: 60px auto;
+				display: block;
+			}
+		</style>
+		<div>
+			<!--<h2>WebSQL</h2>-->
+			<img src="images/WebSQL-logo.png" alt=""/>
+		</div>
+	</article>
+	<article class="slide" id="webSQLMainFeatures">
+		<style>
+
+		</style>
+		<div>
+			<h2>Main features</h2>
+
+			<ul>
+				<li>Basically, its SQLite</li>
+				<li>Very solid mobile support</li>
+				<li>Good performance</li>
+				<li>Indexing</li>
+				<li>Transactions</li>
+				<li>Asynchronous API features</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide less-h2" id="webSQLDeprecated">
+		<style>
+			#webSQLDeprecated img{
+				width: 700px;
+				display: block;
+				margin: 0 auto;
+			}
+		</style>
+		<div>
+			<h2>…this is deprecated.</h2>
+
+			<img src="images/web-sql.png" alt=""/>
+		</div>
+	</article>
+	<article class="slide" id="webSQLLimitations">
+		<style>
+			#webSQLLimitations ul{
+				font-size: 25px;
+				/*line-height: 35px;*/
+			}
+
+			#webSQLLimitations .sub-list{
+				font-size: 20px;
+				margin-top: 0;
+			}
+		</style>
+		<div>
+			<h2>Limitations</h2>
+
+			<ul>
+				<li>Deprecated</li>
+				<li>No Mozilla or IE support</li>
+				<li>Requires SQL/RDBMS experience</li>
+				<li>SQL never seemed appropriate for client-side development</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide less-h2 less-code" id="webSQLExample">
+		<style>
+			#webSQLExample pre{
+				font-size: 20px;
+				line-height: 30px;
+				margin-bottom: 30px;
+			}
+
+		</style>
+		<div>
+			<h2>Example</h2>
+
+			<pre>
+				<code>var db = openDatabase('mydb', '1.0', 'my first database', 2 * 1024 * 1024);</code>
+				<code>db.transaction(function (tx) {</code>
+				<code>  tx.executeSql(<mark>'SELECT * FROM foo'</mark>, [], function (tx, results) {</code>
+				<code>    var len = results.rows.length, i;</code>
+				<code>    for (i = 0; i < len; i++) {</code>
+				<code>      alert(results.rows.item(i).text);</code>
+				<code>    }</code>
+				<code>  });</code>
+				<code>});</code>
+			</pre>
+
+		</div>
+	</article>
+	<article class="slide" id="webSQLBrowserSupport">
+		<style>
+			#webSQLBrowserSupport ul{
+				margin-left: 50px;
+				font-size: 25px;
+				line-height: 35px;
+			}
+		</style>
+		<div>
+			<h2>Browser support</h2>
+
+			<ul>
+				<li>Chrome 4.0+</li>
+				<li>Safari 3.1+</li>
+				<li>Opera 10.5+</li>
+				<li>iOS Safari 3.2+</li>
+				<li>Firefox mobile</li>
+				<li>Opera Mobile 11.0+</li>
+				<li>Android Browser 2.1+</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide" id="indexedDb">
+		<style>
+			#indexedDb h2{
+				font-size: 70px;
+				font-family: monospace;
+				text-align: center;
+			}
+			#indexedDb img{
+				margin: 60px auto;
+				display: block;
+			}
+		</style>
+		<div>
+			<h2>Indexed DB</h2>
+			<img src="images/indexedDB.png" alt=""/>
+		</div>
+	</article>
+	<article class="slide" id="indexedDbMainFeatures">
+		<style>
+
+		</style>
+		<div>
+			<h2>Main features</h2>
+
+			<ul>
+				<li>W3C Working Draft</li>
+				<li>Object store (NoSQL)</li>
+				<li>Flexible data schema</li>
+				<li>Transactions</li>
+				<li>Indexed fields</li>
+				<li>Asynchronous API</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide" id="indexedDbLimitations">
+		<style>
+			#indexedDbLimitations ul{
+				font-size: 25px;
+			}
+
+			#indexedDbLimitations .sub-list{
+				font-size: 20px;
+				margin-top: 0;
+			}
+		</style>
+		<div>
+			<h2>Limitations</h2>
+
+			<ul>
+				<li>Limited support in older and mobile browsers</li>
+				<li>The API is very new and subject to revision</li>
+				<li>Large and complex API</li>
+				<li>Like any NoSQL store, data is unstructured which can lead to integrity issues</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide less-h2 less-code" id="indexedDbExample">
+		<style>
+			#indexedDbExample pre{
+				font-size: 12px;
+				line-height: 30px;
+				margin-bottom: 30px;
+			}
+
+		</style>
+		<div>
+			<h2>Example</h2>
+
+			<pre>
+				<code>var dbOpenRequest = window.indexedDB.open("BookShop1"), db = null;</code>
+				<code>dbOpenRequest.onsuccess = function(event){</code>
+				<code>  db = dbOpenRequest.result;</code>
+				<code>  DAO.version = db.version;</code>
+				<code>  var thisDB = db; <mark class="comment">// Need to create this variable since the variable db is assigned to other things later</mark></code>
+				<code>  db.onversionchange = function(e){</code>
+				<code>    write("Version change triggered, so closing database connection", e.oldVersion, e.newVersion, thisDB);</code>
+				<code>    thisDB.close();</code>
+				<code>  };</code>
+				<code>  write("Database Opened", db, event);</code>
+				<code>};</code>
+				<code>dbOpenRequest.onupgradeneeded = function(e){</code>
+				<code>  write("Database upgrade needed");</code>
+				<code>  var transaction = dbOpenRequest.transaction, db = dbOpenRequest.result;</code>
+				<code>};</code>
+				<code>dbOpenRequest.onerror = function(e){</code>
+				<code>  write("DB Open Request Error");</code>
+				<code>};</code>
+				<code>dbOpenRequest.onblocked = function(e){</code>
+				<code>  write("DB Open Request Blocked");</code>
+				<code>};</code>
+			</pre>
+
+		</div>
+	</article>
+	<article class="slide" id="indexedDbBrowserSupport">
+		<style>
+			#indexedDbBrowserSupport ul{
+				margin-left: 50px;
+				font-size: 25px;
+				line-height: 35px;
+			}
+		</style>
+		<div>
+			<h2>Browser support</h2>
+
+			<ul>
+				<li>Firefox 4.0+</li>
+				<li>Chrome 11.0+</li>
+				<li>Firefox Mobile 6.0+</li>
+				<li>IE 10.0+</li>
+				<li>Opera 15.0+</li>
+				<li>Safari 7.1+</li>
+				<li>iOS Safari 8+</li>
+				<li>Android Browser 4.4+</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide" id="fileReader">
+		<style>
+			#fileReader h2{
+				font-size: 70px;
+				font-family: monospace;
+				text-align: center;
+			}
+			#fileReader img{
+				margin: 60px auto;
+				display: block;
+			}
+		</style>
+		<div>
+			<img src="images/html5.png" alt=""/>
+			<h2>FileReader</h2>
+		</div>
+	</article>
+	<article class="slide" id="fileReaderMainFeatures">
+		<style>
+
+		</style>
+		<div>
+			<h2>Main features</h2>
+
+			<ul>
+				<li>Sandboxed filesystem</li>
+				<li>Great for fairly large data storage</li>
+				<li>Binary data management</li>
+				<li>Asynchronous API</li>
+				<li>Performance <strong>should</strong> be good</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide" id="fileReaderLimitations">
+		<style>
+			#fileReaderLimitations ul{
+				font-size: 25px;
+				/*line-height: 35px;*/
+			}
+
+			#fileReaderLimitations .sub-list{
+				font-size: 20px;
+				margin-top: 0;
+			}
+		</style>
+		<div>
+			<h2>Limitations</h2>
+
+			<ul>
+				<li>A very early specification which is subject to revision</li>
+				<li>An obvious security risk unless file writing is restricted</li>
+				<li>Little support in current browsers and polyfills may be impractical</li>
+				<li>Unstructured data with no transactions, indexing or searching facilties</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide less-h2 less-code" id="fileReaderExample">
+		<style>
+			#fileReaderExample pre{
+				font-size: 20px;
+				line-height: 30px;
+				margin-bottom: 30px;
+			}
+
+		</style>
+		<div>
+			<h2>Example</h2>
+
+			<pre>
+				<code>var reader = new FileReader(),</code>
+				<code>    encoding = 'uft-8';</code>
+				<code>reader.onload = function(e) {</code>
+				<code>  var text = reader.result;</code>
+				<code>}</code>
+				<code>reader.readAsText('../some-file.txt', encoding);</code>
+			</pre>
+
+		</div>
+	</article>
+	<article class="slide" id="fileReaderBrowserSupport">
+		<style>
+			#fileReaderBrowserSupport ul{
+				margin-left: 50px;
+				font-size: 25px;
+				line-height: 35px;
+			}
+		</style>
+		<div>
+			<h2>Browser support</h2>
+
+			<ul>
+				<li>Firefox 3.6+</li>
+				<li>Chrome 6.0+</li>
+				<li>Firefox Mobile 6.0+</li>
+				<li>IE 10.0+</li>
+				<li>Opera 11.5+</li>
+				<li>Safari 6.1+</li>
+				<li>iOS Safari 8+</li>
+				<li>Android Browser 3+</li>
+			</ul>
+		</div>
+	</article>
+	<article class="slide" id="tools">
+		<style>
+			#tools{
+			}
+		</style>
+		<div>
+			<h2>Tools</h2>
+
+			<ul>
+				<li>Lawnchair</li>
+			</ul>
+
+		</div>
+	</article>
+	<article class="slide" id="lawnchairFeatures">
+		<style>
+			#lawnchairFeatures ul{
+				font-size: 22px;
+				line-height: 35px;
+			}
+
+			#lawnchairFeatures .sub-list{
+				font-size: 18px;
+				margin-top: 0;
+			}
+		</style>
+		<div>
+			<h2>Lawnchair</h2>
+
+			<ul>
+				<li>Collection of objects</li>
+				<li>
+					Adapters for:
+					<ul class="sub-list">
+						<li>Web Storage</li>
+						<li>IndexedDB</li>
+						<li>Web SQL Database</li>
+						<li>Google Gears</li>
+						<li>IE userData</li>
+						<li>BlackBerry persistent store</li>
+						<li>In-memory store</li>
+					</ul>
+				</li>
+			</ul>
+
+		</div>
+	</article>
+	<article class="slide less-h2 less-code" id="lawnchairExample">
+		<style>
+			#lawnchairExample pre{
+				font-size: 20px;
+				line-height: 30px;
+				margin-bottom: 30px;
+			}
+
+		</style>
+		<div>
+			<h2>Example</h2>
+
+			<pre>
+			<code>var store = new Lawnchair({name:'testing'}, function(store) {</code>
+			<code>   var me = {key:'a',firstName:'Clark',lastName:'Kent'};</code>
+			<code>   store.save(me);</code>
+			<code>   store.get('a', function(me) {</code>
+			<code>     console.log(me.firstName + ' ' + me.lastName);</code>
+			<code>   });</code>
+			<code> });</code>
+			</pre>
+
+		</div>
+	</article>
+	<article class="slide" id="whatBetterUse">
+		<style>
+			#whatBetterUse h2{
+				font-size: 100px;
+				font-family: monospace;
+				color: #323330;
+				margin: 125px 0;
+				text-align: center;
+			}
+			#whatBetterUse  h1{
+				text-align: center;
+				font-size: 100px;
+				font-family: monospace;
+			}
+		</style>
+		<div>
+			<h2>What better use?</h2>
+
+		</div>
+	</article>
 	<article class="slide shout" lang="ru"><div>
 		<h2>Спасибо</h2>
 	</div></article>
