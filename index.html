@@ -181,7 +181,7 @@
 						<li>Silverlight</li>
 						<li>Java</li>
 						<li>Google Gears</li>
-						<li>etc.•</li>
+						<li>etc.</li>
 					</ul>
 				</li>
 				<li>
@@ -647,7 +647,7 @@
 				<li>Great for fairly large data storage</li>
 				<li>Binary data management</li>
 				<li>Asynchronous API</li>
-				<li>Performance <strong>should</strong> be good</li>
+				<li>Performance <strong>should be</strong> good</li>
 			</ul>
 		</div>
 	</article>
@@ -791,29 +791,117 @@
 
 		</div>
 	</article>
-	<article class="slide" id="whatBetterUse">
+	<article class="slide" id="tools2">
 		<style>
-			#whatBetterUse h2{
-				font-size: 100px;
-				font-family: monospace;
-				color: #323330;
-				margin: 125px 0;
-				text-align: center;
-			}
-			#whatBetterUse  h1{
-				text-align: center;
-				font-size: 100px;
-				font-family: monospace;
+			#tools2{
 			}
 		</style>
 		<div>
-			<h2>What better use?</h2>
+			<h2>Tools</h2>
+
+			<ul>
+				<li>Lawnchair</li>
+				<li>persistence.js</li>
+			</ul>
 
 		</div>
 	</article>
-	<article class="slide shout" lang="ru"><div>
-		<h2>Спасибо</h2>
-	</div></article>
+	<article class="slide" id="persistenceFeatures">
+		<style>
+			#persistenceFeatures ul{
+				font-size: 22px;
+				line-height: 35px;
+			}
+
+			#persistenceFeatures .sub-list{
+				font-size: 18px;
+				margin-top: 0;
+			}
+		</style>
+		<div>
+			<h2>persistence.js</h2>
+
+			<ul>
+				<li>Asynchronous JavaScript object-relational mapper</li>
+				<li>
+					Adapters for:
+					<ul class="sub-list">
+						<li>Web SQL Database</li>
+						<li>Google Gears</li>
+						<li>In-memory storage with explicit Web Storage commit/read</li>
+						<li>Server-side support for node.js and MySQL</li>
+						<li>“Experimental support for QT 4.7 Declarative UI framework (QML)”</li>
+					</ul>
+				</li>
+			</ul>
+
+		</div>
+	</article>
+	<article class="slide less-h2 less-code" id="persistenceExample">
+		<style>
+			#persistenceExample pre{
+				font-size: 20px;
+				line-height: 30px;
+				margin-bottom: 30px;
+			}
+		</style>
+		<div>
+			<h2>Example</h2>
+
+			<pre>
+			<code>persistence.store.websql.config(persistence, 'yourdbname',
+				'A database description', 5 * 1024 * 1024);</code>
+			<code>var Category = persistence.define('Category', {</code>
+			<code>  name: "TEXT",</code>
+			<code>  metaData: "JSON"</code>
+			<code>});</code>
+			<code>var category = new Category({name: "My category"});</code>
+			<code>category.metaData = {rating: 5};</code>
+			<code>persistance.add(category);</code>
+			<code>persistence.flush(function() {</code>
+			<code>  alert('Done flushing');</code>
+			<code>});</code>
+			</pre>
+
+		</div>
+	</article>
+	<article class="slide" id="tools3">
+		<style>
+			#tools3{
+			}
+		</style>
+		<div>
+			<h2>Tools</h2>
+
+			<ul>
+				<li>Lawnchair</li>
+				<li>persistence.js</li>
+				<li>persistJS</li>
+				<li>amplify.store</li>
+				<li>localStorageDB</li>
+				<li>https://github.com/axemclion/IndexedDB</li>
+				<li>realStorage</li>
+			</ul>
+
+		</div>
+	</article>
+	<article class="slide shout" id="fin" lang="ru">
+		<style type="text/css">
+			#fin h2{
+				font-size: 100px;
+				top: 40%;
+			}
+			#fin h2.second{
+				font-size: 50px;
+				position: absolute;
+				top: 70%;
+			}
+		</style>
+		<div>
+			<h2>Thank you for attention</h2>
+			<h2 class="next second">I will be glad answer your questions :-)</h2>
+		</div>
+	</article>
 	<!-- <p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p> -->
 	<!--
 		To hide progress bar from entire presentation
