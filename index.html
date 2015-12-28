@@ -151,8 +151,8 @@
 			<img class="left" src="images/cookie-monster-cartoon-large.jpg" alt=""/>
 			<ul>
 				<li class="next">Cookies are included with every HTTP request, thereby slowing down your web application by needlessly transmitting the same data over and over</li>
-				<li class="next">Cookies are included with every HTTP request, thereby sending data unencrypted over the internet (unless your entire web application is served over SSL)</li>
-				<li class="next">Cookies are limited to about 4 KB of data — enough to slow down your application (see above), but not enough to be terribly useful</li>
+				<li class="next">Sending unencrypted data over the internet (unless your entire web application is served over SSL)</li>
+				<li class="next">Cookies are limited to about 4 KB of data — enough to slow down your application, but not enough to be terribly useful</li>
 			</ul>
 		</div>
 	</article>
@@ -174,7 +174,7 @@
 
 			<ul>
 				<li>Cookies</li>
-				<li>
+				<li class="next">
 					Plugins
 					<ul class="sub-list">
 						<li>Flash</li>
@@ -184,7 +184,7 @@
 						<li>etc.</li>
 					</ul>
 				</li>
-				<li>
+				<li class="next">
 					Browser-specific features
 					<ul class="sub-list">
 						<li>IEs userData</li>
@@ -239,15 +239,15 @@
 					"A lot of space"
 					<ul class="sub-list">
 						<li>5Mb</li>
-						<li>Reasonably large amounts of various types of data</li>
+						<li>Reasonably large amount of various types of data</li>
 						<li>Caching binary content</li>
 					</ul>
 				</li>
 				<li class="next">
 					Network independence
 					<ul class="sub-list">
-						<li>Performance</li>
 						<li>Offline use</li>
+						<li>Performance</li>
 					</ul>
 				</li>
 				<li class="next">
@@ -448,7 +448,7 @@
 			<ul>
 				<li>Deprecated</li>
 				<li>No Mozilla or IE support</li>
-				<li>Requires SQL/RDBMS experience</li>
+				<li>Requires SQL experience</li>
 				<li>SQL never seemed appropriate for client-side development</li>
 			</ul>
 		</div>
@@ -570,26 +570,25 @@
 			<h2>Example</h2>
 
 			<pre>
-				<code>var dbOpenRequest = window.indexedDB.open("BookShop1"), db = null;</code>
-				<code>dbOpenRequest.onsuccess = function(event){</code>
-				<code>  db = dbOpenRequest.result;</code>
-				<code>  DAO.version = db.version;</code>
-				<code>  var thisDB = db; <mark class="comment">// Need to create this variable since the variable db is assigned to other things later</mark></code>
-				<code>  db.onversionchange = function(e){</code>
-				<code>    write("Version change triggered, so closing database connection", e.oldVersion, e.newVersion, thisDB);</code>
-				<code>    thisDB.close();</code>
+				<code>var db,</code>
+				<code>    objectStore,</code>
+				<code>    request = indexedDB.open("MyTestDatabase");</code>
+				<code>request.onerror = function(event) {</code>
+				<code>  alert("error");</code>
+				<code>};</code>
+				<code>request.onsuccess = function(event) {</code>
+				<code>  db = event.target.result;</code>
+				<code>  objectStore = db.createObjectStore("customers", { keyPath: "ssn" });</code>
+				<code>};</code>
+				<code>request.onupgradeneeded = function(event) {</code>
+				<code>  var obj = {</code>
+				<code>    ssn: "444-44-4444",</code>
+				<code>    email: "bill@company.com",</code>
+				<code>    name: "Bill"</code>
 				<code>  };</code>
-				<code>  write("Database Opened", db, event);</code>
-				<code>};</code>
-				<code>dbOpenRequest.onupgradeneeded = function(e){</code>
-				<code>  write("Database upgrade needed");</code>
-				<code>  var transaction = dbOpenRequest.transaction, db = dbOpenRequest.result;</code>
-				<code>};</code>
-				<code>dbOpenRequest.onerror = function(e){</code>
-				<code>  write("DB Open Request Error");</code>
-				<code>};</code>
-				<code>dbOpenRequest.onblocked = function(e){</code>
-				<code>  write("DB Open Request Blocked");</code>
+				<code>  objectStore.createIndex("name", "name", { unique: false });</code>
+				<code>  objectStore.createIndex("email", "email", { unique: true });</code>
+				<code>  objectStore.add(obj);</code>
 				<code>};</code>
 			</pre>
 
@@ -668,9 +667,9 @@
 
 			<ul>
 				<li>A very early specification which is subject to revision</li>
-				<li>An obvious security risk unless file writing is restricted</li>
-				<li>Little support in current browsers and polyfills may be impractical</li>
-				<li>Unstructured data with no transactions, indexing or searching facilties</li>
+				<li>An obvious security risk unless file writing is unrestricted</li>
+				<li>Little support in current browsers</li>
+				<li>Unstructured data with no transactions, indexing and searching facilities</li>
 			</ul>
 		</div>
 	</article>
@@ -822,7 +821,7 @@
 			<h2>persistence.js</h2>
 
 			<ul>
-				<li>Asynchronous JavaScript object-relational mapper</li>
+				<li> Asynchronous JavaScript object-relational mapper</li>
 				<li>
 					Adapters for:
 					<ul class="sub-list">
@@ -876,13 +875,43 @@
 			<ul>
 				<li>Lawnchair</li>
 				<li>persistence.js</li>
-				<li>persistJS</li>
-				<li>amplify.store</li>
-				<li>localStorageDB</li>
-				<li>https://github.com/axemclion/IndexedDB</li>
-				<li>realStorage</li>
+				<li class="next">persistJS</li>
+				<li class="next">amplify.store</li>
+				<li class="next">localStorageDB</li>
+				<li class="next">https://github.com/axemclion/IndexedDB</li>
+				<li class="next">realStorage</li>
+				<li class="next">etc...</li>
 			</ul>
 
+		</div>
+	</article>
+	<article class="slide" id="conclusions">
+		<style>
+			#conclusions .box{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: row;
+			}
+			#conclusions img{
+				width: 200px;
+				margin: 20px;
+			}
+			#conclusions p{
+				margin: 0px;
+			}
+		</style>
+		<div>
+			<h2>Conclusions</h2>
+
+			<div class="box">
+				<img class="next" src="images/local-storage.png" alt=""/>
+				<img class="next" src="images/WebSQL-logo.png" alt=""/>
+				<img class="next" src="images/indexedDB.png" alt=""/>
+				<img class="next" src="images/filereader.png" alt=""/>
+			</div>
+			<p class="next"><a href="http://www.html5rocks.com/en/tutorials/offline/whats-offline/">http://www.html5rocks.com/en/tutorials/offline/whats-offline/</a></p>
+			<p class="next"><a href="http://www.html5rocks.com/en/tutorials/offline/storage/">http://www.html5rocks.com/en/tutorials/offline/storage/</a></p>
 		</div>
 	</article>
 	<article class="slide shout" id="fin" lang="ru">
@@ -899,7 +928,7 @@
 		</style>
 		<div>
 			<h2>Thank you for attention</h2>
-			<h2 class="next second">I will be glad answer your questions :-)</h2>
+			<h2 class="next second">I will be glad to answer your questions :-)</h2>
 		</div>
 	</article>
 	<!-- <p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p> -->
